@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "states",
+  "info": {
+    "name": "state"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "state": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "unique": true
+    },
+    "stateText": {
+      "type": "string"
+    }
+  }
+}
