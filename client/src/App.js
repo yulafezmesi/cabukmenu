@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { addNPlayer } from "./Api";
+import Addplayerstat from "./Addplayerstat";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    update: "no",
+  };
+
+  constructor(props) {
+    super(props);
+
+    addNPlayer((err, update) =>
+      this.setState({
+        update,
+      })
+    );
+  }
+
+  addPlayer = (name, Goals, Matches) => {
+    axios
+      .post("http://localhost:1337/players", {
+        name,
+        Goals,
+        Matches,
+      })
+      .then((res) => console.log("done"));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Addplayerstat addPlayer={this.addPlayer} />
+        <p className="App-intro">player added: {this.state.update}</p>
+      </div>
+    );
+  }
 }
 
 export default App;

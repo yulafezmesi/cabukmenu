@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_headers",
+  "info": {
+    "name": "order_header"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "unit_price": {
+      "type": "float",
+      "required": true
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "table": {
+      "model": "table",
+      "via": "order_headers"
+    },
+    "username": {
+      "type": "string"
+    }
+  }
+}

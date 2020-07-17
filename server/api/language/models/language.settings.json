@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "languages",
+  "info": {
+    "name": "language",
+    "displayName": "Dil"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "short_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "currency": {
+      "model": "currency",
+      "via": "language"
+    }
+  }
+}

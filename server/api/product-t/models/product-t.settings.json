@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_ts",
+  "info": {
+    "name": "product_t",
+    "displayName": "Ürün Tanım"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "is_available": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "float"
+    },
+    "language": {
+      "model": "language"
+    },
+    "product": {
+      "model": "product"
+    }
+  }
+}

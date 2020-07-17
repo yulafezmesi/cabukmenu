@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_ts",
+  "info": {
+    "name": "category_t",
+    "displayName": "Kategori Tanım"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "model": "category"
+    },
+    "language": {
+      "model": "language"
+    }
+  }
+}

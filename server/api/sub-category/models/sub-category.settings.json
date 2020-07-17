@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_categories",
+  "info": {
+    "name": "sub_category",
+    "displayName": "Alt Kategori"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "category": {
+      "via": "sub_category",
+      "model": "category"
+    },
+    "products": {
+      "collection": "product",
+      "via": "sub_category"
+    }
+  }
+}

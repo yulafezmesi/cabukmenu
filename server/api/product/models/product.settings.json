@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "product",
+    "displayName": "Ürün"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "category": {
+      "via": "products",
+      "model": "category"
+    },
+    "sub_category": {
+      "via": "products",
+      "model": "sub-category"
+    },
+    "product_no": {
+      "type": "string"
+    }
+  }
+}

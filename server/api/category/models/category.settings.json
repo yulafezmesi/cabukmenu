@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "category",
+    "displayName": "Kategori"
+
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "sub_category": {
+      "model": "sub-category",
+      "via": "category"
+    },
+    "products": {
+      "collection": "product",
+      "via": "category"
+    }
+  }
+}

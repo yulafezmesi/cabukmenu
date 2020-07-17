@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subcategory_ts",
+  "info": {
+    "name": "subcategory_t",
+    "displayName": "Alt Kategori Tanım"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "language": {
+      "model": "language"
+    },
+    "sub_category": {
+      "model": "sub-category"
+    }
+  }
+}
