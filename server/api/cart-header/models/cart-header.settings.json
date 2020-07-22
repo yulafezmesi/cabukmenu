@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "order_headers",
+  "collectionName": "cart_headers",
   "info": {
-    "name": "order_header",
-    "displayName": "Siparişler"
+    "name": "cart_header",
+    "displayName": "Sepetler"
   },
   "options": {
     "increments": true,
@@ -19,18 +19,16 @@
     },
     "table": {
       "model": "table",
-      "via": "order_headers"
+      "via": "cart_headers"
     },
     "username": {
       "type": "string",
+      "unique": false,
       "required": true
     },
-    "order_items": {
-      "via": "order_header",
-      "collection": "order-items"
-    },
-    "note": {
-      "type": "text"
+    "cart_items": {
+      "collection": "cart-items",
+      "via": "cart_header"
     }
   }
 }

@@ -16,15 +16,31 @@
       "unique": true
     },
     "category": {
-      "via": "products",
-      "model": "category"
+      "model": "category",
+      "via": "products"
     },
     "sub_category": {
-      "via": "products",
-      "model": "sub-category"
+      "model": "sub-category",
+      "via": "products"
     },
     "product_no": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "price": {
+      "type": "float",
+      "required": true,
+      "private": true
     }
   }
 }

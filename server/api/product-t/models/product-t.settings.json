@@ -11,17 +11,21 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "is_available": {
       "type": "boolean",
       "default": true
     },
     "price": {
-      "type": "float"
+      "type": "float",
+      "unique": false,
+      "required": true
     },
     "language": {
       "model": "language"

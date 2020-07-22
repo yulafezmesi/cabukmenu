@@ -11,15 +11,20 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "symbol": {
       "type": "string",
-      "maxLength": 1
+      "maxLength": 1,
+      "private": false,
+      "required": true,
+      "unique": true
     },
     "language": {
-      "via": "currency",
-      "model": "language"
+      "model": "language",
+      "via": "currency"
     }
   }
 }

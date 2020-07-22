@@ -15,13 +15,22 @@
       "required": true,
       "unique": true
     },
-    "category": {
-      "via": "sub_category",
-      "model": "category"
-    },
     "products": {
-      "collection": "product",
-      "via": "sub_category"
+      "via": "sub_category",
+      "collection": "product"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "category": {
+      "model": "category",
+      "via": "sub_categories"
     }
   }
 }

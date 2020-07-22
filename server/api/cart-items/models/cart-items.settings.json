@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cart_items",
+  "info": {
+    "name": "cart_items",
+    "displayName": "Sepet Kalemleri"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "base_price": {
+      "type": "float",
+      "required": true
+    },
+    "total_price": {
+      "type": "float",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "table": {
+      "model": "table"
+    },
+    "cart_header": {
+      "via": "cart_items",
+      "model": "cart-header"
+    }
+  }
+}

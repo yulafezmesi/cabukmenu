@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "default_languages",
+  "info": {
+    "name": "default_language",
+    "displayName": "Varsayılan Dil"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "language": {
+      "model": "language"
+    }
+  }
+}

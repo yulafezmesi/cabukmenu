@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Lifecycle callbacks for the `sub-category` model.
@@ -35,7 +35,18 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  // afterCreate: async (model, attrs, options) => {},
+  afterCreate: async (model) => {
+    try {
+      let defaultLang = await strapi.services["default-language"].find();
+      await strapi.services["subcategory-t"].create({
+        sub_category: model.attributes.id,
+        name: model.attributes.name,
+        language: defaultLang.id,
+      });
+    } catch (e) {
+      console.log(e.errors.name, "sub-category.js afterCreate lifecycle");
+    }
+  },
 
   // Before updating a value.
   // Fired before an `update` query.

@@ -4,7 +4,6 @@
   "info": {
     "name": "category",
     "displayName": "Kategori"
-
   },
   "options": {
     "increments": true,
@@ -16,13 +15,13 @@
       "required": true,
       "unique": true
     },
-    "sub_category": {
-      "model": "sub-category",
-      "via": "category"
-    },
     "products": {
-      "collection": "product",
-      "via": "category"
+      "via": "category",
+      "collection": "product"
+    },
+    "sub_categories": {
+      "via": "category",
+      "collection": "sub-category"
     }
   }
 }

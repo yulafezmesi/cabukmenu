@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/default-language",
+      "handler": "default-language.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/default-language",
+      "handler": "default-language.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/default-language",
+      "handler": "default-language.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

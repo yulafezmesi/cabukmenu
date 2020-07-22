@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_items",
+  "info": {
+    "name": "order_items",
+    "displayName": "Sipariş Kalemleri"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "base_price": {
+      "type": "float",
+      "required": true
+    },
+    "total_price": {
+      "type": "float",
+      "required": true
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "table": {
+      "model": "table"
+    },
+    "order_header": {
+      "model": "order-header",
+      "via": "order_items"
+    },
+    "order_status": {
+      "model": "order-status"
+    }
+  }
+}

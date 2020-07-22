@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 /**
- * Lifecycle callbacks for the `product` model.
+ * Lifecycle callbacks for the `cart-items` model.
  */
 
 module.exports = {
@@ -35,20 +35,7 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-
-  afterCreate: async (model) => {
-    try {
-      let defaultLang = await strapi.services["default-language"].find();
-      await strapi.services["product-t"].create({
-        product: model.attributes.id,
-        name: model.attributes.name,
-        language: defaultLang.id,
-        price: model.attributes.price,
-      });
-    } catch (e) {
-      console.log(e.errors.name, "product.js afterCreate lifecycle");
-    }
-  },
+  // afterCreate: async (model, attrs, options) => {},
 
   // Before updating a value.
   // Fired before an `update` query.

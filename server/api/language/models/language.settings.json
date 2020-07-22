@@ -21,8 +21,8 @@
       "unique": true
     },
     "currency": {
-      "model": "currency",
-      "via": "language"
+      "via": "language",
+      "model": "currency"
     }
   }
 }
