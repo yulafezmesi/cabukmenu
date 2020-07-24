@@ -92,8 +92,7 @@ lcov.info
 pids
 logs
 results
-**/node_modules/*
-!**/node_modules/strapi-admin
+node_modules
 .node_history
 
 
@@ -108,6 +107,8 @@ coverage
 # Strapi
 ############################
 
+.env
+license.txt
 exports
 .cache
 build

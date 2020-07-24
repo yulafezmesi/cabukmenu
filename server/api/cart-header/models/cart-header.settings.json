@@ -27,8 +27,8 @@
       "required": true
     },
     "cart_items": {
-      "collection": "cart-items",
-      "via": "cart_header"
+      "via": "cart_header",
+      "collection": "cart-items"
     }
   }
 }

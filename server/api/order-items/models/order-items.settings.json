@@ -39,6 +39,9 @@
     },
     "order_status": {
       "model": "order-status"
+    },
+    "product_t": {
+      "model": "product-t"
     }
   }
 }

@@ -34,8 +34,11 @@
       "model": "table"
     },
     "cart_header": {
-      "via": "cart_items",
-      "model": "cart-header"
+      "model": "cart-header",
+      "via": "cart_items"
+    },
+    "product_t": {
+      "model": "product-t"
     }
   }
 }
