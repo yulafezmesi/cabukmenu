@@ -21,14 +21,13 @@
       "model": "table",
       "via": "cart_headers"
     },
-    "username": {
-      "type": "string",
-      "unique": false,
-      "required": true
-    },
     "cart_items": {
       "via": "cart_header",
       "collection": "cart-items"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

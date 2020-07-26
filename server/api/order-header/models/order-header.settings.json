@@ -21,16 +21,16 @@
       "model": "table",
       "via": "order_headers"
     },
-    "username": {
-      "type": "string",
-      "required": true
-    },
     "order_items": {
       "via": "order_header",
       "collection": "order-items"
     },
     "note": {
       "type": "text"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

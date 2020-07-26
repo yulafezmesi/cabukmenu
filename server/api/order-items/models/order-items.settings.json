@@ -23,10 +23,6 @@
       "type": "float",
       "required": true
     },
-    "username": {
-      "type": "string",
-      "required": true
-    },
     "currency": {
       "model": "currency"
     },
@@ -42,6 +38,10 @@
     },
     "product_t": {
       "model": "product-t"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

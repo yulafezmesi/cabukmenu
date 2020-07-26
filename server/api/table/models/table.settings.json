@@ -27,6 +27,17 @@
     "cart_headers": {
       "via": "table",
       "collection": "cart-header"
+    },
+    "section": {
+      "model": "section",
+      "via": "tables"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ellipse",
+        "square"
+      ]
     }
   }
 }

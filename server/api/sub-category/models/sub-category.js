@@ -5,6 +5,20 @@
  */
 
 module.exports = {
+  lifecycles: {
+    async afterCreate(data) {
+      try {
+        let defaultLang = await strapi.services["default-language"].find();
+        await strapi.services["subcategory-t"].create({
+          sub_category: data.id,
+          name: data.name,
+          language: defaultLang.id,
+        });
+      } catch (e) {
+        console.log(e.errors.name, "sub-category.js afterCreate lifecycle");
+      }
+    },
+  },
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model, attrs, options) => {},
@@ -35,18 +49,6 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  afterCreate: async (model) => {
-    try {
-      let defaultLang = await strapi.services["default-language"].find();
-      await strapi.services["subcategory-t"].create({
-        sub_category: model.attributes.id,
-        name: model.attributes.name,
-        language: defaultLang.id,
-      });
-    } catch (e) {
-      console.log(e.errors.name, "sub-category.js afterCreate lifecycle");
-    }
-  },
 
   // Before updating a value.
   // Fired before an `update` query.

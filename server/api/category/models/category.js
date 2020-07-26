@@ -8,7 +8,6 @@ module.exports = {
   lifecycles: {
     // Called before an entry is created
     async afterCreate(data) {
-      console.log(data);
       try {
         let defaultLang = await strapi.services["default-language"].find();
         await strapi.services["category-t"].create({

@@ -23,11 +23,6 @@
       "model": "sub-category",
       "via": "products"
     },
-    "product_no": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "image": {
       "collection": "file",
       "via": "related",
@@ -41,6 +36,9 @@
       "type": "float",
       "required": true,
       "private": true
+    },
+    "product_no": {
+      "type": "string"
     }
   }
 }
