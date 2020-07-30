@@ -26,9 +26,6 @@
     "currency": {
       "model": "currency"
     },
-    "table": {
-      "model": "table"
-    },
     "order_header": {
       "model": "order-header",
       "via": "order_items"

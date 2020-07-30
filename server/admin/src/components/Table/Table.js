@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     width: 100px;
     height: 100px;
   }
-  ${({ order, theme }) => {
+  ${({ order }) => {
     let styles = "";
     switch (order) {
       case 0:

@@ -11,6 +11,9 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "is_show": {
+      "type": "boolean"
     }
   }
 }

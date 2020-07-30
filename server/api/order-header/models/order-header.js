@@ -1,10 +1,20 @@
-'use strict';
+"use strict";
 
 /**
  * Lifecycle callbacks for the `order-header` model.
  */
 
 module.exports = {
+  lifecycles: {
+    async afterCreate(data) {
+      console.log("Create oluyorum");
+      strapi.io.emit("change_order", data);
+    },
+    afterUpdate: async (data) => {
+      console.log("Update oluyorum");
+      strapi.io.emit("change_order", data);
+    },
+  },
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model, attrs, options) => {},

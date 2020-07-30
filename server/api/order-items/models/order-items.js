@@ -1,10 +1,19 @@
-'use strict';
+"use strict";
 
 /**
  * Lifecycle callbacks for the `cart-items` model.
  */
 
 module.exports = {
+  lifecycles: {
+    async afterCreate(data) {
+      strapi.io.emit("change_order", data);
+    },
+    async afterUpdate(data) {
+      console.log("update oluyorum");
+      strapi.io.emit("change_order", data);
+    },
+  },
   // Before saving a value.
   // Fired before an `insert` or `update` query.
   // beforeSave: async (model, attrs, options) => {},

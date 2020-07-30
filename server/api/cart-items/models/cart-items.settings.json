@@ -26,9 +26,6 @@
     "currency": {
       "model": "currency"
     },
-    "table": {
-      "model": "table"
-    },
     "cart_header": {
       "model": "cart-header",
       "via": "cart_items"
