@@ -11,7 +11,8 @@ const table = {
     primary: "#959BB6",
     secondary: "#E6EAF6",
   },
-  boxShadow: "thin solid rgba(0, 0, 0, 0.12);",
+  boxShadow:
+    "0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);",
 };
 
 export default table;

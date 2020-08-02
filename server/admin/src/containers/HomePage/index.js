@@ -32,6 +32,11 @@ const GET_SECTIONS = gql`
           order_items(where: { order_status: { is_show: true } }) {
             product_t {
               name
+              product {
+                image {
+                  url
+                }
+              }
             }
             quantity
             base_price

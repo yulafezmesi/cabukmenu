@@ -6,12 +6,13 @@ const TableDetailWrapper = styled.div`
   z-index: 99999999;
   flex-wrap: wrap;
   padding: 16px 24px;
-  border: ${({ theme }) => theme.table.boxShadow};
+  box-shadow: ${({ theme }) => theme.table.boxShadow};
   border-radius: 5px;
   font-size: 1.5rem;
   .table-detail {
     flex: 0;
     align-self: start;
+    margin-top: 6px;
   }
   .panel {
     flex: 1;
@@ -26,7 +27,6 @@ const TableDetailWrapper = styled.div`
   }
   .amount {
     text-align: right;
-    display: block;
     white-space: nowrap;
   }
   details {
@@ -54,6 +54,9 @@ const TableDetailWrapper = styled.div`
     }
     table {
       width: 100%;
+      td {
+        padding: 0.5rem;
+      }
     }
     .product {
       display: flex;
@@ -62,14 +65,10 @@ const TableDetailWrapper = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      width: 175px;
     }
   }
 
-  /* details[open] summary:after {
-    color: #9e9e9e;
-    content: "expand_less";
-    font-family: "Material Icons";
-  } */
   details[open] {
     margin-bottom: 16px;
     border: none;
@@ -85,6 +84,21 @@ const TableDetailWrapper = styled.div`
         props.theme.table[props.tableType].primary};
       position: absolute;
       left: 0;
+    }
+  }
+  details summary {
+    display: flex;
+    align-items: center;
+    &:before {
+      content: "";
+      height: 65%;
+      width: 2px;
+      background-color: ${(props) =>
+        props.theme.table[props.tableType].primary};
+      position: absolute;
+      left: 0;
+      transition: 0.2s ease-in-out;
+      opacity: 0.8;
     }
   }
   details[open]:first-child {
@@ -114,7 +128,6 @@ const TableDetailWrapper = styled.div`
   }
   details ul,
   summary ul {
-    padding-left: 0;
     list-style: none;
     display: -webkit-flex;
     display: flex;
@@ -122,6 +135,9 @@ const TableDetailWrapper = styled.div`
     justify-content: space-between;
     margin-block-start: 0;
     margin-block-end: 0;
+    padding: 0;
+    padding-right: 0.5rem;
+    width: 100%;
   }
 
   summary ul li {

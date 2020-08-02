@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const Wrapper = styled.div`
   width: 100px;
   height: 100px;
-  border: ${({ theme }) => theme.table.boxShadow};
+  box-shadow: ${({ theme }) => theme.table.boxShadow};
   background-color: ${(props) =>
     props.order > 0
       ? props.theme.table[props.tableType].secondary

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/default-product-image",
+      "handler": "default-product-image.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/default-product-image",
+      "handler": "default-product-image.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/default-product-image",
+      "handler": "default-product-image.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
