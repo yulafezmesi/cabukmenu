@@ -30,7 +30,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true
+      "required": false
     },
     "price": {
       "type": "float",

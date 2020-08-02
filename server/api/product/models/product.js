@@ -6,6 +6,13 @@
 
 module.exports = {
   lifecycles: {
+    async beforeCreate(data) {
+      if (!data.image) {
+        let { image } = await strapi.services["default-product-image"].find();
+        let imageArr = [image];
+        data.image = imageArr;
+      }
+    },
     async afterCreate(data) {
       try {
         let defaultLang = await strapi.services["default-language"].find();
