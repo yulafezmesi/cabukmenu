@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import SectionWrapper from "./SectionWrapper";
 import TableWrapper from "./TableWrapper";
 function Table({ sections }) {
-  console.log(sections);
   return (
     <Wrapper>
       {sections.map((section) => {

@@ -7,11 +7,9 @@
 module.exports = {
   lifecycles: {
     async afterCreate(data) {
-      console.log("Create oluyorum");
       strapi.io.emit("change_order", data);
     },
     afterUpdate: async (data) => {
-      console.log("Update oluyorum");
       strapi.io.emit("change_order", data);
     },
   },

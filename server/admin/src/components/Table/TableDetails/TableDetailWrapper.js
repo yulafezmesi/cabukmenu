@@ -9,18 +9,17 @@ const TableDetailWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.table.boxShadow};
   border-radius: 5px;
   font-size: 1.5rem;
+  margin-left: 240px;
   .table-detail {
     flex: 0;
-    align-self: start;
-    margin-top: 6px;
+    align-self: center;
   }
   .panel {
     flex: 1;
     margin-left: 24px;
-    align-self: center;
-    height: 250px;
+    max-height: 250px;
     overflow-y: auto;
-    box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 6px 4px -4px rgba(60, 64, 67, 0.3);
     ::-webkit-scrollbar {
       width: 3px;
     }
@@ -28,6 +27,7 @@ const TableDetailWrapper = styled.div`
   .amount {
     text-align: right;
     white-space: nowrap;
+    line-height: 1;
   }
   details {
     background: #fff;
@@ -73,6 +73,10 @@ const TableDetailWrapper = styled.div`
     margin-bottom: 16px;
     border: none;
     border-radius: 2px;
+    .title-name {
+      font-weight: 500;
+    }
+
     /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24); */
   }
   details[open] summary {
@@ -156,7 +160,9 @@ const TableDetailWrapper = styled.div`
 
   .title-name {
     flex-grow: 4;
-    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1;
+    letter-spacing: 0.5px;
   }
 
   .list-unstyled {

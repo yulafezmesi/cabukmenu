@@ -13,7 +13,6 @@ const Overlay = styled.div`
   transition: inherit;
   width: 100%;
   will-change: opacity;
-  z-index: 99999998;
 `;
 
 export default Overlay;

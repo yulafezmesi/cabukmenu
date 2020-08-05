@@ -36,7 +36,11 @@ function TableWrapper({ table }) {
         </OutsideWrapper>
       </div>
       {showDetail ? (
-        <TableDetails setShowDetail={setShowDetail} table={table} />
+        <TableDetails
+          showDetail={showDetail}
+          setShowDetail={setShowDetail}
+          table={table}
+        />
       ) : null}
     </>
   );

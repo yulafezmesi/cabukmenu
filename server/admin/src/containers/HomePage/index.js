@@ -30,6 +30,7 @@ const GET_SECTIONS = gql`
           }
           note
           order_items(where: { order_status: { is_show: true } }) {
+            id
             product_t {
               name
               product {
@@ -63,12 +64,8 @@ const HomePage = ({ global: { plugins }, history: { push } }) => {
     });
   }, []);
   const { loading, error, data, refetch } = useQuery(GET_SECTIONS);
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
   if (loading) return <p>Yükleniyor..</p>;
   if (error) return <p>hata</p>;
-  console.log(data.sections);
   return (
     <>
       <Container className="container-fluid">

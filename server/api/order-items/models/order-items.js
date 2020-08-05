@@ -10,7 +10,6 @@ module.exports = {
       strapi.io.emit("change_order", data);
     },
     async afterUpdate(data) {
-      console.log("update oluyorum");
       strapi.io.emit("change_order", data);
     },
   },

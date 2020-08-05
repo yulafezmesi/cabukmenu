@@ -148,6 +148,8 @@
   "app.components.listPlugins.title.singular": "{number} eklenti yüklü",
   "app.components.listPluginsPage.deletePlugin.error": "Eklenti kaldırılırken bir hata oluştu",
   "app.containers.App.notification.error.init": "API isteği sırasında bir hata oluştu",
+  "app.notification.error.payment":"Ödeme Sırasında bir hata oluştu",
+  "app.notification.success.payment":"Ödeme Başarılı",
   "app.links.configure-view": "Ekranı düzenle",
   "app.utils.SelectOption.defaultMessage": " ",
   "app.utils.defaultMessage": " ",
@@ -215,5 +217,7 @@
   "notification.error.layout": "Düzen alınamadı",
   "notification.form.error.fields": "Form birden fazla hata içeriyor",
   "notification.form.success.fields": "Değişiklikler kaydedildi",
-  "request.error.model.unknown": "Bu model bulunmamaktadır."
+  "request.error.model.unknown": "Bu model bulunmamaktadır.",
+  "components.table.tableDetail.totalPriceText":"Toplam:",
+  "components.table.tableDetail.blankTable":"Sipariş Mevcut Değil"
 }

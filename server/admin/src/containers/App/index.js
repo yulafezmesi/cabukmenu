@@ -29,6 +29,7 @@ import { Content, Wrapper } from "./components";
 import { getDataSucceeded } from "./actions";
 //Providing Apollo
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import MainContextProvider from "../../context/MainContext";
 const client = new ApolloClient({
   uri: "http://localhost:1337/graphql",
   cache: new InMemoryCache(),
@@ -99,27 +100,29 @@ function App(props) {
   }
 
   return (
-    <ApolloProvider client={client}>
-      <Theme>
-        <Wrapper>
-          <GlobalStyle />
-          <NotificationProvider />
-          <Content>
-            <Switch>
-              <Route
-                path="/auth/:authType"
-                render={(routerProps) => (
-                  <AuthPage {...routerProps} hasAdmin={hasAdmin} />
-                )}
-                exact
-              />
-              <PrivateRoute path="/" component={Admin} />
-              <Route path="" component={NotFoundPage} />
-            </Switch>
-          </Content>
-        </Wrapper>
-      </Theme>
-    </ApolloProvider>
+    <MainContextProvider>
+      <ApolloProvider client={client}>
+        <Theme>
+          <Wrapper>
+            <GlobalStyle />
+            <NotificationProvider />
+            <Content>
+              <Switch>
+                <Route
+                  path="/auth/:authType"
+                  render={(routerProps) => (
+                    <AuthPage {...routerProps} hasAdmin={hasAdmin} />
+                  )}
+                  exact
+                />
+                <PrivateRoute path="/" component={Admin} />
+                <Route path="" component={NotFoundPage} />
+              </Switch>
+            </Content>
+          </Wrapper>
+        </Theme>
+      </ApolloProvider>
+    </MainContextProvider>
   );
 }
 

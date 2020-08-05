@@ -32,7 +32,6 @@ const Wrapper = styled.div`
     background-color: red;
   }
   ${({ order, theme }) => {
-    console.log(theme);
     let styles = "";
     switch (order) {
       case 0:
