@@ -8,38 +8,31 @@ import CheckoutWrapper from "../TableDetails/CheckoutWrapper";
 import BlankTableWrapper from "../TableDetails/BlankTableWrapper";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
-import { EventNoteOutlined } from "@material-ui/icons";
+import { EventNoteOutlined, HistoryOutlined } from "@material-ui/icons";
 import { MainContext } from "../../../context/MainContext";
 import "./animation.css";
 import Overlay from "./Overlay";
 function TableDetails({ table, setShowDetail, showDetail }) {
   const { formatMessage } = useIntl();
-  const { updateOrdersToPaymentComplete } = useContext(MainContext);
+  const {
+    updateOrdersToPaymentComplete,
+    getAllOrders,
+    getAllOrderItemsByUser,
+    getAllOrderItems,
+  } = useContext(MainContext);
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setShowDetail(false);
   });
-  const userOrders = table.order_headers.reduce(function (r, a) {
-    r[a.user.username] = r[a.user.username] || [];
-    r[a.user.username].push(a);
-    return r;
-  }, Object.create(null));
 
-  const getAllOrderItemsByUser = (headers) => {
-    console.log(headers);
-    return headers.reduce((sum, item) => {
-      return [...sum, ...item.order_items];
-    }, []);
-  };
-
-  const getAllOrderItems = () => {
-    return table.order_headers.reduce((sum, item) => {
-      return [...sum, ...item.order_items];
-    }, []);
-  };
   return (
     <Wrapper>
       <Overlay onClick={() => setShowDetail(false)} />
-      <CSSTransition timeout={1000} in={showDetail} classNames="alert" appear>
+      <CSSTransition
+        unmountOnExit
+        timeout={1000}
+        in={showDetail}
+        classNames="alert"
+      >
         <TableDetailWrapper tableType={table.type}>
           <div className="table-detail">
             <Table
@@ -53,6 +46,13 @@ function TableDetails({ table, setShowDetail, showDetail }) {
               <div className="chair"></div>
               <div className="chair"></div>
               <div className="chair"></div>
+              <HistoryOutlined
+                className="table-history"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  console.log("selam");
+                }}
+              />
             </Table>
             <OutsideWrapper>
               {[
@@ -66,42 +66,45 @@ function TableDetails({ table, setShowDetail, showDetail }) {
               ))}
             </OutsideWrapper>
           </div>
-          {Object.keys(userOrders).length > 0 ? (
+          {Object.keys(getAllOrders(table.order_headers)).length > 0 ? (
             <>
-              <div class="panel">
-                {Object.keys(userOrders).map((user, i) => {
-                  return (
-                    <details key={i} open>
-                      <summary>
-                        <ul>
-                          <li class="title-name">{user}</li>
-                          <EventNoteOutlined
-                            onClick={() =>
-                              updateOrdersToPaymentComplete(
-                                getAllOrderItemsByUser(userOrders[user])
-                              )
-                            }
-                            style={{ fontSize: "1.8rem", color: "#6dbb1a" }}
-                          />
-                          <li class="amount">
-                            {getAllOrderItemsByUser(userOrders[user]).reduce(
-                              (sum, val, i, arr) => {
+              <div className="panel">
+                {Object.keys(getAllOrders(table.order_headers)).map(
+                  (user, i) => {
+                    return (
+                      <details key={i} open>
+                        <summary>
+                          <ul>
+                            <li className="title-name">{user}</li>
+                            <EventNoteOutlined
+                              onClick={() =>
+                                updateOrdersToPaymentComplete(
+                                  getAllOrderItemsByUser(
+                                    getAllOrders(table.order_headers)[user]
+                                  )
+                                )
+                              }
+                              style={{ fontSize: "1.8rem", color: "#6dbb1a" }}
+                            />
+                            <li className="amount">
+                              {getAllOrderItemsByUser(
+                                getAllOrders(table.order_headers)[user]
+                              ).reduce((sum, val, i, arr) => {
                                 if (i === arr.length - 1) {
                                   sum += val.total_price;
                                   return `${sum} ${val.currency.symbol}`;
                                 }
                                 return (sum += val.total_price);
-                              },
-                              0
-                            )}
-                          </li>
-                        </ul>
-                      </summary>
-                      <div class="content">
-                        <table>
-                          <tbody>
-                            {getAllOrderItemsByUser(userOrders[user]).map(
-                              (item, i) => {
+                              }, 0)}
+                            </li>
+                          </ul>
+                        </summary>
+                        <div className="content">
+                          <table>
+                            <tbody>
+                              {getAllOrderItemsByUser(
+                                getAllOrders(table.order_headers)[user]
+                              ).map((item, i) => {
                                 return (
                                   <tr key={i}>
                                     <td>
@@ -126,26 +129,28 @@ function TableDetails({ table, setShowDetail, showDetail }) {
                                     </td>
                                   </tr>
                                 );
-                              }
-                            )}
-                          </tbody>
-                        </table>
-                      </div>
-                    </details>
-                  );
-                })}
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </details>
+                    );
+                  }
+                )}
               </div>
               <CheckoutWrapper>
                 <div className="checkout">
                   <ul>
-                    <li class="title-name">
+                    <li className="title-name">
                       {formatMessage({
                         id: "components.table.tableDetail.totalPriceText",
                       })}
                     </li>
                     <EventNoteOutlined
                       onClick={() =>
-                        updateOrdersToPaymentComplete(getAllOrderItems())
+                        updateOrdersToPaymentComplete(
+                          getAllOrderItems(table.order_headers)
+                        )
                       }
                       style={{
                         fontSize: "1.8rem",
@@ -153,7 +158,7 @@ function TableDetails({ table, setShowDetail, showDetail }) {
                         marginRight: "22px",
                       }}
                     />
-                    <li class="amount">
+                    <li className="amount">
                       {table.order_headers.reduce((sum, val) => {
                         return (sum += val.unit_price);
                       }, 0)}

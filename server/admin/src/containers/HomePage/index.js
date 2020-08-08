@@ -59,7 +59,7 @@ const GET_SECTIONS = gql`
 
 const HomePage = ({ global: { plugins }, history: { push } }) => {
   useEffect(() => {
-    socket.on("change_order", (data) => {
+    socket.on("change_order", () => {
       refetch();
     });
   }, []);

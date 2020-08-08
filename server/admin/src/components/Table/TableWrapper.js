@@ -3,10 +3,14 @@ import Table from "./Table";
 import OutsideWrapper from "./OutsideWrapper";
 import Outside from "./Outside";
 import TableDetails from "./TableDetails/index";
+import TableHistory from "./TableHistory/index";
 import PropTypes from "prop-types";
+import { HistoryOutlined } from "@material-ui/icons";
+import { CSSTransition } from "react-transition-group";
 
 function TableWrapper({ table }) {
   const [showDetail, setShowDetail] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
   return (
     <>
       <div style={{ display: "flex" }}>
@@ -22,6 +26,22 @@ function TableWrapper({ table }) {
           <div className="chair"></div>
           <div className="chair"></div>
           <div className="chair"></div>
+
+          <HistoryOutlined
+            className="table-history"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowHistory(!showHistory);
+            }}
+          />
+          <CSSTransition
+            timeout={300}
+            in={showHistory}
+            classNames="history"
+            unmountOnExit
+          >
+            <TableHistory />
+          </CSSTransition>
         </Table>
         <OutsideWrapper>
           {[

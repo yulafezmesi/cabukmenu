@@ -10,8 +10,15 @@ const Wrapper = styled.div`
       : props.theme.table.empty.secondary};
   position: relative;
   user-select: none;
+  cursor: pointer;
   border-radius: ${({ tableType }) =>
     tableType === "ellipse" ? "50%" : "inherit"};
+  &:hover {
+    .table-history {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
   .table-name {
     position: absolute;
     top: 50%;
@@ -28,6 +35,27 @@ const Wrapper = styled.div`
     width: 100px;
     height: 100px;
   }
+  .table-history {
+    position: absolute;
+    bottom: 5px;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-50%) translateY(15px) rotate(0deg);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform-origin: center;
+    left: 50%;
+    cursor: pointer;
+    color: ${(props) =>
+      props.order > 0
+        ? props.theme.table[props.tableType].primary
+        : props.theme.table.empty.primary};
+    &:hover {
+      transform: translateX(-50%) translateY(0) rotate(-90deg);
+      transform-origin: center;
+    }
+  }
+
   ${({ order }) => {
     let styles = "";
     switch (order) {

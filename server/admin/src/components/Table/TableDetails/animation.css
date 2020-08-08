@@ -1,24 +1,47 @@
 .alert-enter,
 .alert-appear {
-  opacity: 0;
-  transform: scale(0.9);
+  opacity: 0 !important;
+  transform: scale(0.9) !important;
 }
 .alert-enter-active,
 .alert-appear-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
-}
-.alert-exit {
-  opacity: 1;
-}
-.alert-leave {
-  opacity: 1;
-  transform: scaleX(1) translateY(0);
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition: opacity 300ms, transform 300ms !important;
 }
 
-.alert-leave-active {
-  opacity: 01;
-  transform: scaleX(0) translateY(100px);
-  transition: all 300ms ease-in-out;
+.alert-exit {
+  opacity: 1 !important;
+  transform: scaleX(1) translateY(0) !important;
+}
+
+.alert-exit-active {
+  opacity: 01 !important;
+  transform: scaleX(0) translateY(100px) !important;
+  transition: all 300ms ease-in-out !important;
+}
+
+.history-enter,
+.history-appear {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  transform-origin: top !important;
+}
+.history-enter-active,
+.history-appear-active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: opacity 300ms, transform 300ms !important;
+}
+
+.history-exit {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transform-origin: top !important;
+}
+
+.history-exit-active {
+  opacity: 01 !important;
+  transform: scale(0) !important;
+  transition: all 300ms ease-in-out !important;
 }

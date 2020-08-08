@@ -27,9 +27,36 @@ const updateOrdersToPaymentComplete = async (orderItems) => {
   }
 };
 
+const getAllOrders = (order_headers) => {
+  return order_headers.reduce(function (r, a) {
+    r[a.user.username] = r[a.user.username] || [];
+    r[a.user.username].push(a);
+    return r;
+  }, Object.create(null));
+};
+
+const getAllOrderItemsByUser = (headers) => {
+  return headers.reduce((sum, item) => {
+    return [...sum, ...item.order_items];
+  }, []);
+};
+
+const getAllOrderItems = (order_headers) => {
+  return order_headers.reduce((sum, item) => {
+    return [...sum, ...item.order_items];
+  }, []);
+};
+
 const MainContextProvider = (props) => {
   return (
-    <MainContext.Provider value={{ updateOrdersToPaymentComplete }}>
+    <MainContext.Provider
+      value={{
+        updateOrdersToPaymentComplete,
+        getAllOrders,
+        getAllOrderItemsByUser,
+        getAllOrderItems,
+      }}
+    >
       {props.children}
     </MainContext.Provider>
   );
