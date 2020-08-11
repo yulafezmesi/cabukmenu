@@ -21,12 +21,12 @@
       "default": true
     },
     "order_headers": {
-      "via": "table",
-      "collection": "order-header"
+      "collection": "order-header",
+      "via": "table"
     },
     "cart_headers": {
-      "via": "table",
-      "collection": "cart-header"
+      "collection": "cart-header",
+      "via": "table"
     },
     "section": {
       "model": "section",
@@ -38,6 +38,11 @@
         "ellipse",
         "square"
       ]
+    },
+    "qr": {
+      "type": "uid",
+      "private": false,
+      "required": true
     }
   }
 }

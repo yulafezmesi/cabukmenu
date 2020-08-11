@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const Overlay = styled.div`
   opacity: 0.35;
-  background-color: rgb(33, 33, 33);
+  background-color: rgba(0, 0, 0, 0.6784313725490196);
   border-color: rgb(33, 33, 33);
   border-radius: inherit;
   bottom: 0;

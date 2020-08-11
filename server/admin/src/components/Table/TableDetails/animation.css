@@ -25,7 +25,7 @@
 .history-appear {
   opacity: 0 !important;
   transform: scale(0) !important;
-  transform-origin: top !important;
+  transform-origin: center !important;
 }
 .history-enter-active,
 .history-appear-active {
@@ -37,7 +37,7 @@
 .history-exit {
   opacity: 1 !important;
   transform: scale(1) !important;
-  transform-origin: top !important;
+  transform-origin: center !important;
 }
 
 .history-exit-active {

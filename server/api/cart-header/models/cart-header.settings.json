@@ -18,8 +18,8 @@
       "model": "currency"
     },
     "table": {
-      "model": "table",
-      "via": "cart_headers"
+      "via": "cart_headers",
+      "model": "table"
     },
     "cart_items": {
       "via": "cart_header",

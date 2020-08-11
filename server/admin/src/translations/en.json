@@ -238,6 +238,7 @@
   "app.containers.App.notification.error.init": "An error occured while requesting the API",
   "app.notification.error.payment":"Something wrong with payments",
   "app.notification.success.payment":"Payment success",
+  "app.components.LeftMenuLinkContainer.generateQr": "Generate QR",
   "app.containers.AuthPage.ForgotPasswordSuccess.text.contact-admin": "If you do not receive this link, please contact your administrator.",
   "app.containers.AuthPage.ForgotPasswordSuccess.text.email": "It can take a few minutes to receive your password recovery link.",
   "app.containers.AuthPage.ForgotPasswordSuccess.title": "Email sent",

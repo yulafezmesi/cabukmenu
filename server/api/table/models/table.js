@@ -1,5 +1,5 @@
-'use strict';
-
+"use strict";
+const { v4 } = require("uuid");
 /**
  * Lifecycle callbacks for the `table` model.
  */
@@ -7,8 +7,11 @@
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
-  // beforeSave: async (model, attrs, options) => {},
-
+  lifecycles: {
+    async beforeCreate(data) {
+      data.qr = v4();
+    },
+  },
   // After saving a value.
   // Fired after an `insert` or `update` query.
   // afterSave: async (model, response, options) => {},

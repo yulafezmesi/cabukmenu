@@ -1,13 +1,28 @@
 import styled from "styled-components";
 const Wrapper = styled.div`
-  display: grid;
-  width: 100px;
-  height: 100px;
-  background-color: ${({ theme }) => theme.main.colors.lightGrey};
-  box-shadow: ${({ theme }) => theme.table.boxShadow};
-  position: absolute;
-  bottom: -101px;
-  z-index: 2;
+  margin-top: 16px;
+  width: 100%;
+
+  .history-table {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        padding: 10px 0 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+    }
+    &-box {
+      display: flex;
+      flex-direction: row;
+    }
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 1ch;
+    }
+  }
 `;
 
 export default Wrapper;

@@ -16,6 +16,7 @@ const GET_SECTIONS = gql`
         id
         name
         type
+        qr
         order_headers(
           where: { order_items: { order_status: { is_show: true } } }
         ) {

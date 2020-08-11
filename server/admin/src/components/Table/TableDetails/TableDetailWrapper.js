@@ -1,6 +1,7 @@
 import styled from "styled-components";
 const TableDetailWrapper = styled.div`
   display: flex;
+  position: relative;
   width: 35%;
   background-color: white;
   z-index: 99999999;

@@ -27,8 +27,8 @@ const updateOrdersToPaymentComplete = async (orderItems) => {
   }
 };
 
-const getAllOrders = (order_headers) => {
-  return order_headers.reduce(function (r, a) {
+const getAllOrders = (orderHeaders) => {
+  return orderHeaders.reduce(function (r, a) {
     r[a.user.username] = r[a.user.username] || [];
     r[a.user.username].push(a);
     return r;
@@ -41,12 +41,22 @@ const getAllOrderItemsByUser = (headers) => {
   }, []);
 };
 
-const getAllOrderItems = (order_headers) => {
-  return order_headers.reduce((sum, item) => {
+const getAllOrderItems = (orderHeaders) => {
+  return orderHeaders.reduce((sum, item) => {
     return [...sum, ...item.order_items];
   }, []);
 };
 
+// const getTableByUIID = (tableUUID) => {
+//   try {
+//     return await axios.get(`http://localhost:1337/order-items/${item.id}`, {
+//       order_status: 4,
+//     });
+//   } catch (e) {
+//     console.error(e);
+//     return e;
+//   }
+// };
 const MainContextProvider = (props) => {
   return (
     <MainContext.Provider

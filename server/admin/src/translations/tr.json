@@ -118,6 +118,7 @@
   "app.components.LeftMenuFooter.poweredBy": "Gururla sunar ",
   "app.components.LeftMenuLinkContainer.configuration": "Yapılandırma",
   "app.components.LeftMenuLinkContainer.general": "Genel",
+  "app.components.LeftMenuLinkContainer.generateQr": "QR Oluştur",
   "app.components.LeftMenuLinkContainer.installNewPlugin": "Mağaza",
   "app.components.LeftMenuLinkContainer.listPlugins": "Eklentiler",
   "app.components.LeftMenuLinkContainer.noPluginsInstalled": "Yüklenen eklenti bulunmamaktadır.",

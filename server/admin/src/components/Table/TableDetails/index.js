@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useIntl } from "react-intl";
 import Wrapper from "./Wrapper";
 import Table from "../Table";
@@ -6,13 +6,17 @@ import TableDetailWrapper from "./TableDetailWrapper";
 import OutsideWrapper from "../OutsideWrapper";
 import CheckoutWrapper from "../TableDetails/CheckoutWrapper";
 import BlankTableWrapper from "../TableDetails/BlankTableWrapper";
+import TableHistory from "../TableHistory/index";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
+
 import { EventNoteOutlined, HistoryOutlined } from "@material-ui/icons";
 import { MainContext } from "../../../context/MainContext";
 import "./animation.css";
 import Overlay from "./Overlay";
 function TableDetails({ table, setShowDetail, showDetail }) {
+  const [showHistory, setShowHistory] = useState(false);
+
   const { formatMessage } = useIntl();
   const {
     updateOrdersToPaymentComplete,
@@ -47,10 +51,10 @@ function TableDetails({ table, setShowDetail, showDetail }) {
               <div className="chair"></div>
               <div className="chair"></div>
               <HistoryOutlined
-                className="table-history"
+                className="table-hover-icon"
                 onClick={(e) => {
                   e.stopPropagation();
-                  console.log("selam");
+                  setShowHistory(!showHistory);
                 }}
               />
             </Table>
@@ -179,6 +183,14 @@ function TableDetails({ table, setShowDetail, showDetail }) {
               </h2>
             </BlankTableWrapper>
           )}
+          <CSSTransition
+            timeout={300}
+            in={showHistory}
+            classNames="history"
+            unmountOnExit
+          >
+            <TableHistory />
+          </CSSTransition>
         </TableDetailWrapper>
       </CSSTransition>
     </Wrapper>

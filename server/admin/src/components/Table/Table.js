@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   border-radius: ${({ tableType }) =>
     tableType === "ellipse" ? "50%" : "inherit"};
   &:hover {
-    .table-history {
+    .table-hover-icon {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     width: 100px;
     height: 100px;
   }
-  .table-history {
+  .table-hover-icon {
     position: absolute;
     bottom: 5px;
     height: 25px;
